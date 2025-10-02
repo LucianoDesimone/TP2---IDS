@@ -1,0 +1,417 @@
+{% extends "base.html" %}
+
+{% block body %}
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+
+    <header class="site-navbar py-4" role="banner">
+
+      <div class="container">
+        <div class="d-flex align-items-center">
+          <div class="site-logo">
+            <a href={{ (url_for('index')) }}>
+              <img src={{ url_for('static', filename='images/logo_club.png') }} alt="Logo">
+            </a>
+          </div>
+          <div class="ml-auto">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                <li class="active"><a href={{ (url_for('index')) }} class="nav-link">Página Principal</a></li>
+                <li><a href={{ (url_for('registration')) }} class="nav-link">Inscripción</a></li>
+              </ul>
+            </nav>
+
+            <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right text-white"><span
+                class="icon-menu h3 text-white"></span></a>
+          </div>
+        </div>
+      </div>
+
+    </header>
+
+    <div class="hero overlay" style="background-image: url({{ url_for('static', filename='images/principal.jpg') }});">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-5 ml-auto custom-text">
+            <h1 class="text-white">{{ info_evento[1]["nombre"] }}</h1>
+            <p>{{ info_evento[1]["descripcion"] }}</p>
+            <div id="date-countdown"></div>
+            <p>
+              <a href="{{ (url_for('registration', _external=True)) }}" class="btn btn-primary py-3 px-4 mr-3">Inscribirme</a>
+            </p>  
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    
+    <div class="container">
+      
+
+      <div class="row">
+        <div class="col-lg-12">
+          
+         <div class="d-flex team-vs gap-3">
+          <div class="team-1 w-50">
+            <div class="team-details w-100 text-center">
+              <h2>Modalidad Corta (30km)</h2>
+              <ul class="list-unstyled mt-2 text-end">
+                <li>Nivel de dificultad: Medio</li>
+                <li>Tipo de tereno: Senderos y caminos rurales</li>
+                <li>Desnivel acumulado: 500m aprox.</li>
+                <li>Tiempo estimado de recorrido: 2-3 horas</li>
+                <li>Servicios: Puntos de hidratación y puesta a punto</li>
+              </ul>
+            </div>
+          </div>
+            <div class="team-2 w-50">
+              <div class="team-details w-100 text-center">
+                <h2>Modalidad Larga (80km)</h2>
+                <ul class="list-unstyled mt-2">
+                  <li>Nivel de dificultad: Alto</li>
+                  <li>Tipo de tereno: Caminos rurales, rutas y subidas exigentes</li>
+                  <li>Desnivel acumulado: 1500m aprox.</li>
+                  <li>Tiempo estimado de recorrido: 5-7 horas</li>
+                  <li>Servicios: Puntos de hidratación y asistencia mecánica</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="latest-news">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 title-section">
+            <h2 class="heading">Novedades</h2>
+          </div>
+        </div>
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <div class="post-entry">
+              <a href="#">
+                <img src="{{ url_for('static', filename='images/vaensa_01.jpg') }}"  alt="Image" class="img-fluid">
+              </a>
+              <div class="caption">
+                <div class="caption-inner">
+                  <h3 class="mb-3"></h3>
+                  <div class="author d-flex align-items-center">
+                    <div class="img mb-2 mr-3">
+                      <img src="{{ url_for('static', filename='images/persona_1.jpg') }}"  alt="Image" class="img-fluid">
+                    </div>
+                    <div class="text">
+                      <h4>Vanesa Otero</h4>
+                      <span>Mayo 19, 2025 &bullet; MTB</span>
+                    </div>
+                  </div>
+                </div>
+              </div> 
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="post-entry">
+              <a href="#">
+                <img src="{{ url_for('static', filename='images/img_1.jpg') }}" alt="Image" class="img-fluid">
+              </a>
+              <div class="caption">
+                <div class="caption-inner">
+                  <h3 class="mb-3"></h3>
+                  <div class="author d-flex align-items-center">
+                    <div class="img mb-2 mr-3">
+                      <img src="{{ url_for('static', filename='images/vanesa_o.jpg') }}" alt="Image">
+                    </div>
+                    <div class="text">
+                      <h4>Braian Ordoz</h4>
+                      <span>Junio 19, 2024 &bullet; MTB</span>
+                    </div>
+                  </div>
+                </div>
+              </div> 
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="post-entry">
+              <a href="#">
+                <img src="{{ url_for('static', filename='images/pedro_l.png') }}" alt="Image" class="img-fluid">
+              </a>
+              <div class="caption">
+                <div class="caption-inner">
+                  <h3 class="mb-3"></h3>
+                  <div class="author d-flex align-items-center">
+                    <div class="img mb-2 mr-3">
+                      <img src="{{ url_for('static', filename='images/pedro_lo.png') }}"  alt="Image" class="img-fluid">
+                    </div>
+                    <div class="text">
+                      <h4>Pedro Lopez</h4>
+                      <span>Febrero 15, 2025 &bullet; MTB</span>
+                    </div>
+                  </div>
+                </div>
+              </div> 
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="site-section bg-dark">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="widget-next-match">
+              <div class="widget-title">
+                <h3>Recorridos</h3>
+              </div>
+              <div class="widget-body mb-3">
+                <div class="widget-vs">
+                  <div class="d-flex align-items-center justify-content-around justify-content-between w-100">
+                    <div class="team-1 text-center">
+                      <img src="{{ url_for('static', filename='images/mapa_corto.png') }}"  alt="Image">
+                      <h3>Modalidad 30km</h3>
+                    </div>
+                    <div>
+                      <span class="vs"><span>o</span></span>
+                    </div>
+                    <div class="team-2 text-center">
+                      <img src="{{ url_for('static', filename='images/mapa_largo.png') }}" alt="Image">
+                      <h3>Modalidad 80km</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center widget-vs-contents mb-4">
+                <h4>{{ info_evento[1]["provincia"] }}</h4>
+                <p class="mb-5">
+                  <span class="d-block">{{ info_evento[1]["fecha"] }}</span>
+                  <span class="d-block">{{ info_evento[1]["horario"] }}</span>
+                  <strong class="text-primary">{{ info_evento[1]["lugar"] }}</strong>
+                </p>
+
+                <div id="date-countdown2" class="pb-1"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            
+            <div class="widget-next-match">
+              <table class="table custom-table">
+                <thead>
+                  <tr>
+                    <th>N°</th>
+                    <th>Parada</th>
+                    <th>KM</th>
+                    <th>ETA</th>
+                    <th>P. Hidrat.</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for i in range(8) %}
+                    <tr>
+                      <td>{{ info_evento[3]["parada"][i] }}</td>
+                      <td><strong class="text-white">{{ info_evento[3]["recorridos"][i] }}</strong></td>
+                      <td>{{ info_evento[3]["KM"][i] }}</td>
+                      <td>{{ info_evento[3]["horario"][i] }}</td>
+                      <td>{{ info_evento[3]["Punto_Hidrat"][i] }}</td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-6 title-section">
+            <h2 class="heading">Nuestros Auspiciantes</h2>
+          </div>
+          <div class="col-6 text-right">
+            <div class="custom-nav">
+            <a href="#" class="js-custom-prev-v2"><span class="icon-keyboard_arrow_left"></span></a>
+            <span></span>
+            <a href="#" class="js-custom-next-v2"><span class="icon-keyboard_arrow_right"></span></a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="owl-4-slider owl-carousel">
+          <div class="item">
+            <div class="video-media">
+              <img src="{{ (url_for('static', filename='images/ausp_1.png')) }}" alt="Image" class="img-fluid">
+              <a href="https://www.youtube.com/watch?v=Tqe4-AAVb1w" class="d-flex play-button align-items-center" data-fancybox>
+                <span class="icon mb-2">
+                  <span class="icon-play"></span>
+                </span>
+                <div class="caption">
+                  <h3 class="m-0">{{ info_evento[1]["auspiciantes"][0] }}</h3>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="video-media">
+              <img src="{{ (url_for('static', filename='images/YPF.png')) }}"  alt="Image" class="img-fluid">
+               <a href="https://www.youtube.com/watch?v=-9HgbIRio64" class="d-flex play-button align-items-center" data-fancybox>
+                <span class="icon mr-3">
+                  <span class="icon-play"></span>
+                </span>
+                <div class="caption">
+                  <h3 class="m-0">{{ info_evento[1]["auspiciantes"][1] }}</h3>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="video-media">
+              <img src="{{ (url_for('static', filename='images/ausp_2.png')) }}" alt="Image" class="img-fluid">
+              <a href="https://www.youtube.com/watch?v=DqTus_rZtTg" class="d-flex play-button align-items-center" data-fancybox>
+                <span class="icon mr-3">
+                  <span class="icon-play"></span>
+                </span>
+                <div class="caption">
+                  <h3 class="m-0">{{ info_evento[1]["auspiciantes"][2] }}</h3>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="video-media">
+              <img src="{{ (url_for('static', filename='images/ausp_3.png')) }}"  alt="Image" class="img-fluid">
+              <a href="https://www.youtube.com/watch?v=YyfFUk_VE8U" class="d-flex play-button align-items-center" data-fancybox>
+                <span class="icon mr-3">
+                  <span class="icon-play"></span>
+                </span>
+                <div class="caption">
+                  <h3 class="m-0">{{ info_evento[1]["auspiciantes"][3] }}</h3>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="video-media">
+              <img src="{{ (url_for('static', filename='images/ausp_4.png')) }}" alt="Image" class="img-fluid">
+              <a href="https://www.youtube.com/watch?v=aUfrIubmKaw" class="d-flex play-button align-items-center" data-fancybox>
+                <span class="icon mr-3">
+                  <span class="icon-play"></span>
+                </span>
+                <div class="caption">
+                  <h3 class="m-0">{{ info_evento[1]["auspiciantes"][4] }}</h3>
+                </div>
+              </a>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container site-section">
+      <div class="row">
+        <div class="col-6 title-section">
+          <h2 class="heading">Guía del Participante</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="custom-media d-flex">
+            <div class="img mr-4">
+              <img src="{{ (url_for('static', filename='images/logo_mtb.jpg')) }}" alt="Image" class="img-fluid">
+            </div>
+            <div class="text">
+              <span class="meta">Octubre 24, 2025</span>
+              <h3 class="mb-4"><a href="#">PROGRAMA EVENTO MTB</a></h3>
+              <p>En este documento se presenta el Programa Oficial del Evento, donde se encuentran organizadas las actividades previstas, los horarios de acreditación y largada, la ubicación de los circuitos y los momentos destacados de la jornada. Su consulta permitirá a los participantes y asistentes contar con una visión clara y completa del desarrollo del evento.</p>
+              <p><a href="{{ url_for('static', filename='pdfs/programa_evento_mtb.pdf') }}" target="_blank">Descargar Programa del Evento</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="custom-media d-flex">
+            <div class="img mr-4">
+              <img src="{{ (url_for('static', filename='images/logo_mtb_2.png')) }}"alt="Image" class="img-fluid">
+            </div>
+            <div class="text">
+              <span class="meta">Octubre 24, 2025</span>
+              <h3 class="mb-4"><a href="#">REGLAMENTO EVENTO MTB</a></h3>
+              <p>El siguiente documento contiene el Reglamento Oficial del Evento de Ciclismo MTB Rural en Tandil. Allí se detallan las disposiciones generales, las normas de seguridad, las categorías habilitadas, el sistema de clasificación y las pautas de conducta que deberán cumplir todos los participantes. La lectura de este reglamento es obligatoria para garantizar una competencia justa, segura y organizada.</p>
+              <p><a href="{{ url_for('static', filename='pdfs/reglamento_evento_mtb.pdf') }}" target="_blank">Descargar Reglamento</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container site-section">
+      <div class="row">
+        <div class="col-6 title-section">
+          <h2 class="heading">Recorridos</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="custom-media d-flex">
+              <iframe src="https://www.google.com/maps/d/embed?mid=1PPL1x_KTJDi5otpvRxuD8CAqCkgAgwg&ehbc=2E312F&noprof=1" width="640" height="500"></iframe>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="custom-media d-flex">
+            <div class="text">
+              <span class="meta">Turístico, intensidad baja.</span>
+              <h3 class="mb-4"><a href="#">Trayecto Corto</a></h3>
+              <p>Salimos desde el Golf Club de Tandil!<br>Recorreremos algunos de los paisajes más emblemáticos de la zona. 
+              Primera parada en la histórica Piedra Movediza, seguimos hacia Cerro Leones y después al Cerro de la Virgen. 
+              Continuamos por el Camino a los Bosques y llegamos hasta el Valle del Picapedrero.<br>Volvemos al Golf Club de Tandil.
+              <br>Puntos de Hidratación marcados en azul.
+              </p>
+              <p><a href="https://www.google.com/maps/d/viewer?mid=1PPL1x_KTJDi5otpvRxuD8CAqCkgAgwg" target="_blank">Ir al mapa</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br><br>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="custom-media d-flex">
+              <iframe src="https://www.google.com/maps/d/embed?mid=1_-7oF5izzKGSsTTCwc1lqKQjUEueCBU&ehbc=2E312F&noprof=1" width="640" height="500"></iframe>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="custom-media d-flex">
+            <div class="text">
+              <span class="meta">Deportivo, alta intensidad.</span>
+              <h3 class="mb-4"><a href="#">Trayecto Largo</a></h3>
+                <p>Esta ruta comienza en el Golf Club de Tandil. 
+                La primera parada es en el Parque Industrial, seguimos hacia el Cerro Sagrada Familia y el Monolito Octavio J. Suárez. 
+                Luego tomamos camino al Cruce Juan María, continuamos por el Valle del Picapedrero y llegamos al Haras Santa Ana. 
+                Más adelante pasamos por el Aero Club Tandil y cerramos en el Establecimiento Santa Marta, volviendo finalmente al Golf Club de Tandil. 
+                <br>Puntos de Hidratación marcados en azul.
+                </p>
+                <p><a href="https://www.google.com/maps/d/viewer?mid=1_-7oF5izzKGSsTTCwc1lqKQjUEueCBU" target="_blank">Ir al mapa</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

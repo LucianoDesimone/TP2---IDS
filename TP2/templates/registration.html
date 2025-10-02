@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block body %}
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+
+    <header class="site-navbar py-4" role="banner">
+
+      <div class="container">
+        <div class="d-flex align-items-center">
+          <div class="site-logo">
+            <a href={{ (url_for('index')) }}>
+              <img src={{ url_for('static', filename='images/logo_club.png') }} alt="Logo">
+            </a>
+          </div>
+          <div class="ml-auto">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                <li><a href={{ url_for('index') }} class="nav-link">Página Principal</a></li>
+                <li class="active"><a href={{ url_for('registration') }} class="nav-link">Inscripción</a></li>
+              </ul>
+            </nav>
+
+            <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right text-white"><span
+                class="icon-menu h3 text-white"></span></a>
+          </div>
+        </div>
+      </div>
+
+    </header>
+
+    <div class="hero overlay" style="background-image: url({{ url_for('static', filename='images/secundaria.jpg') }});">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-9 mx-auto text-center">
+            <h1 class="text-white">Inscripción</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="site-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7">
+            <h1>Formulario de Inscripción</h1><br>
+            <form method="POST" action="/registration.html">
+              {% if success %}
+                <div class="alert alert-success" role="alert">
+                  ¡Gracias {{ name }} por inscribirte! Pronto recibirás más información del evento.
+                </div>
+              {% endif %}
+              <div class="form-group">
+                <input type="text" class="form-control" name="name" placeholder="Nombre Completo" required>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" name="email" placeholder="Correo Electrónico" required>
+              </div>
+              <div class="form-group">
+              <select class="form-control" name="options" id="options" required>
+                <option value="Corta">Seleccione la modalidad...</option>
+                <option value="Corta">Modalidad Corta (30km)</option>
+                <option value="Larga">Modalidad Larga (80km)</option>
+              </select>
+            </div>
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" value="1" id="elementos" name="elementos">
+              <label class="form-check-label" for="elementos">
+                Cuento con todos los elementos necesarios (bicicleta, casco, protección, etc.).
+              </label>
+            </div>
+              <div class="form-group">
+                <textarea name="message" class="form-control" cols="30" rows="10" placeholder="Agregá los datos especificados..." required></textarea>
+              </div>
+              <div class="form-group">
+                <input type="submit" class="btn btn-primary py-3 px-5" value="Inscribirme">
+              </div>
+            </form>  
+          </div>
+          <div class="col-lg-4 ml-auto">
+            
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <strong class="text-white d-block">Información requerida:</strong>
+                DNI, Teléfono, Localidad, <br> Elementos faltantes (dejar vacío en caso de contar con todo).
+              </li>
+              <li class="mb-2">
+                <strong class="text-white d-block">Email:</strong>
+                <a href="mailto:eventociclismoMTB@gmail.com">eventociclismoMTB@gmail.com</a>
+              </li>
+              <li class="mb-2">
+                <strong class="text-white d-block">Teléfono:</strong>
+                <a href="//wa.me/+5491157614140">+54 9 11 5761-4140</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
